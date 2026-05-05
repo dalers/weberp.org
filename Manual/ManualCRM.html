@@ -1,0 +1,617 @@
+<a id="top"></a>
+<article>
+<h1><a id="CRM">Customer Relationship Management (CRM)</a></h1>
+
+<h2><a id="Overview">Overview</a></h2>
+<p>The webERP CRM module provides lead management and opportunity pipeline
+functionality for tracking potential customers from initial contact through
+to conversion, and managing sales opportunities from prospect through to
+close. The system allows sales teams to capture lead information, track lead
+status through a defined workflow, convert qualified leads into webERP
+customer accounts, and manage a visual sales pipeline with probability-weighted
+forecasting.</p>
+
+<p>The CRM module consists of the following scripts:</p>
+<ul>
+	<li><strong>CRMLeads.php</strong> — Browse and search all leads</li>
+	<li><strong>CRMLeadEntry.php</strong> — Create and edit lead records</li>
+	<li><strong>CRMLeadInquiry.php</strong> — View lead details (read-only)</li>
+	<li><strong>CRMLeadConvert.php</strong> — Convert a lead into a customer</li>
+	<li><strong>CRMSelectLead.php</strong> — Popup lead selector</li>
+	<li><strong>CRMLeadSources.php</strong> — Maintain lead source reference data</li>
+	<li><strong>CRMActivityTypes.php</strong> — Maintain activity type reference data</li>
+	<li><strong>CRMPipelineStages.php</strong> — Maintain pipeline stages</li>
+	<li><strong>CRMOpportunities.php</strong> — Browse and search opportunities</li>
+	<li><strong>CRMOpportunityEntry.php</strong> — Create and edit opportunities</li>
+	<li><strong>CRMOpportunityInquiry.php</strong> — View opportunity details (read-only)</li>
+	<li><strong>CRMPipeline.php</strong> — Visual pipeline board</li>
+	<li><strong>CRMForecast.php</strong> — Sales forecast report</li>
+	<li><strong>CRMActivities.php</strong> — Browse and search all CRM activities</li>
+	<li><strong>CRMActivityEntry.php</strong> — Create and edit activities</li>
+	<li><strong>CRMCalendar.php</strong> — Monthly calendar view of scheduled activities</li>
+	<li><strong>CRMMyActivities.php</strong> — Personal activity dashboard</li>
+</ul>
+
+<div class="floatright">
+	<a class="minitext" href="#top">⬆ Top</a>
+</div>
+
+<h2><a id="LeadWorkflow">Lead Status Workflow</a></h2>
+<p>Each lead follows a status workflow that tracks its progression from
+initial capture to conversion. The available statuses are:</p>
+<dl>
+	<dt>New</dt>
+	<dd>The lead has been captured but no contact has been made yet.
+		This is the default status for newly created leads.</dd>
+	<dt>Contacted</dt>
+	<dd>Initial contact has been made with the lead. This indicates
+		that a sales person has reached out by phone, email, or meeting.</dd>
+	<dt>Qualified</dt>
+	<dd>The lead has been assessed and determined to be a genuine
+		prospect with a real opportunity for business.</dd>
+	<dt>Unqualified</dt>
+	<dd>The lead has been assessed and determined not to be a viable
+		prospect at this time.</dd>
+	<dt>Converted</dt>
+	<dd>The lead has been converted into a full webERP customer account.
+		Once converted, the lead record is retained for historical reference
+		and links to the new customer record. Converted leads cannot be
+		deleted.</dd>
+</dl>
+
+<div class="floatright">
+	<a class="minitext" href="#top">⬆ Top</a>
+</div>
+
+<h2><a id="BrowsingLeads">Browsing and Searching Leads</a></h2>
+<p>The lead list (<strong>CRMLeads.php</strong>) is the main entry point for
+lead management. It displays all leads in a table showing key information at
+a glance.</p>
+
+<h3><a id="SearchFilters">Search and Filter</a></h3>
+<p>The search form at the top of the page provides the following filters to
+narrow the list of leads:</p>
+<dl>
+	<dt>Keywords</dt>
+	<dd>Searches across the lead's first name, last name, and company name.
+		Partial matches are supported.</dd>
+	<dt>Status</dt>
+	<dd>Filter leads by their current workflow status (New, Contacted,
+		Qualified, Unqualified, or Converted), or select All to see
+		every status.</dd>
+	<dt>Assigned To</dt>
+	<dd>Filter by the salesperson assigned to the lead. The dropdown is
+		populated from the salesman table.</dd>
+	<dt>Source</dt>
+	<dd>Filter by the lead source (e.g. Website, Referral, Trade Show).
+		Only active sources appear in this list.</dd>
+</dl>
+<p>Filter selections are remembered in the session, so they persist when
+navigating away and returning to the lead list.</p>
+
+<h3><a id="LeadListColumns">Lead List Columns</a></h3>
+<p>The results table displays:</p>
+<ul>
+	<li>First Name and Last Name</li>
+	<li>Company</li>
+	<li>Status (the current workflow stage)</li>
+	<li>Assigned To (the salesperson)</li>
+	<li>Estimated Value (with currency)</li>
+	<li>Source (how the lead was acquired)</li>
+	<li>Created date</li>
+</ul>
+<p>Each row provides links to Edit the lead, View its full details, and
+(if not yet converted) Convert it to a customer.</p>
+
+<div class="floatright">
+	<a class="minitext" href="#top">⬆ Top</a>
+</div>
+
+<h2><a id="CreatingLeads">Creating and Editing Leads</a></h2>
+<p>New leads are created via <strong>CRMLeadEntry.php</strong>. A link to
+add a new lead is provided at the top of the leads list. The same script is
+used to edit existing leads when accessed with a LeadId parameter.</p>
+
+<h3><a id="LeadFields">Lead Fields</a></h3>
+<dl>
+	<dt>First Name / Last Name</dt>
+	<dd>The contact person's name. At least one of these must be entered.</dd>
+	<dt>Company</dt>
+	<dd>The organisation name, if applicable.</dd>
+	<dt>Job Title</dt>
+	<dd>The contact person's role within their organisation.</dd>
+	<dt>Email</dt>
+	<dd>Contact email address. If entered, it is validated for correct format.</dd>
+	<dt>Phone / Mobile</dt>
+	<dd>Contact telephone numbers.</dd>
+	<dt>Website</dt>
+	<dd>The company or lead's website URL.</dd>
+	<dt>Industry</dt>
+	<dd>The industry sector the lead operates in.</dd>
+	<dt>Source</dt>
+	<dd>How the lead was acquired. Selected from the list maintained in
+		CRMLeadSources.php.</dd>
+	<dt>Status</dt>
+	<dd>The current workflow status of the lead (see
+		<a href="#LeadWorkflow">Lead Status Workflow</a>).</dd>
+	<dt>Assigned To</dt>
+	<dd>The salesperson responsible for this lead. Selected from the
+		salesman table.</dd>
+	<dt>Estimated Value</dt>
+	<dd>The estimated monetary value of the opportunity.</dd>
+	<dt>Currency</dt>
+	<dd>The currency for the estimated value. Selected from the currencies
+		configured in the system.</dd>
+	<dt>Notes</dt>
+	<dd>Free-text area for any additional information about the lead.</dd>
+</dl>
+
+<h3><a id="DeletingLeads">Deleting Leads</a></h3>
+<p>Leads can be deleted from the edit page, provided they have not been
+converted to a customer. Once a lead has been converted its status is set to
+"converted" and deletion is prevented to preserve the audit trail.</p>
+
+<div class="floatright">
+	<a class="minitext" href="#top">⬆ Top</a>
+</div>
+
+<h2><a id="ViewingLeads">Viewing Lead Details</a></h2>
+<p><strong>CRMLeadInquiry.php</strong> provides a read-only view of all
+information held against a lead. It displays all the fields described above
+together with audit information:</p>
+<ul>
+	<li>Created date and the user who created the record</li>
+	<li>Last updated date and the user who last modified it</li>
+	<li>If converted: the customer code the lead was converted to and the
+		conversion date, with a link to the customer record</li>
+</ul>
+<p>From the inquiry page there are links to edit the lead, convert it to a
+customer (if not yet converted), or return to the leads list.</p>
+
+<div class="floatright">
+	<a class="minitext" href="#top">⬆ Top</a>
+</div>
+
+<h2><a id="ConvertingLeads">Converting a Lead to a Customer</a></h2>
+<p><strong>CRMLeadConvert.php</strong> converts a qualified lead into a full
+webERP customer account (debtorsmaster record). This is typically done once
+the lead has progressed through the workflow and is ready to become a trading
+customer.</p>
+
+<h3><a id="ConversionProcess">Conversion Process</a></h3>
+<p>When converting a lead the system:</p>
+<ol>
+	<li>Displays a summary of the lead's details for review</li>
+	<li>Presents a form to capture the additional fields required for a
+		customer record that are not part of the lead data</li>
+	<li>On submission, creates a new debtorsmaster record using data from the
+		lead combined with the additional fields entered</li>
+	<li>Updates the lead record: sets the status to "converted", records the
+		new customer code in the convertedto field, and timestamps the
+		conversion</li>
+</ol>
+
+<h3><a id="ConversionFields">Additional Fields for Conversion</a></h3>
+<p>The conversion form requires:</p>
+<dl>
+	<dt>Customer Number</dt>
+	<dd>If the system is not configured for automatic debtor numbering, a
+		customer code must be entered manually. The system checks that it
+		does not already exist.</dd>
+	<dt>Currency</dt>
+	<dd>Pre-filled from the lead's currency, but can be changed.</dd>
+	<dt>Payment Terms</dt>
+	<dd>The payment terms to apply to the new customer account.</dd>
+	<dt>Sales Type</dt>
+	<dd>The price list / sales type for the customer.</dd>
+	<dt>Customer Type</dt>
+	<dd>The debtor type classification.</dd>
+</dl>
+
+<p>The customer name is derived from the lead's company name if one was
+entered, otherwise from the lead's first and last name. If a lead has
+already been converted, the script displays a message with a link to the
+existing customer record.</p>
+
+<div class="floatright">
+	<a class="minitext" href="#top">⬆ Top</a>
+</div>
+
+<h2><a id="LeadSources">Lead Source Maintenance</a></h2>
+<p><strong>CRMLeadSources.php</strong> maintains the reference list of lead
+sources. Lead sources describe how leads are acquired (e.g. Website,
+Referral, Trade Show, Cold Call). This data is used when creating leads and
+for filtering the lead list.</p>
+
+<h3><a id="LeadSourceFields">Lead Source Fields</a></h3>
+<dl>
+	<dt>Source Name</dt>
+	<dd>A descriptive name for the lead source, up to 40 characters.</dd>
+	<dt>Active</dt>
+	<dd>Controls whether the source appears in selection lists. Inactive
+		sources are hidden from the lead entry form but are retained for
+		reporting on existing leads. The active flag is only shown when
+		editing an existing source.</dd>
+</dl>
+<p>A lead source cannot be deleted if any leads are assigned to it. In this
+case, deactivate the source instead to hide it from future use.</p>
+
+<p>The system is seeded with a default set of sources: Website, Referral,
+Trade Show, Cold Call, Advertisement, Social Media, Partner, and Other.</p>
+
+<div class="floatright">
+	<a class="minitext" href="#top">⬆ Top</a>
+</div>
+
+<h2><a id="ActivityTypes">Activity Type Maintenance</a></h2>
+<p><strong>CRMActivityTypes.php</strong> maintains the reference list of
+activity types that can be logged against leads. Activity types categorise
+the interactions and tasks associated with lead management.</p>
+
+<h3><a id="ActivityTypeFields">Activity Type Fields</a></h3>
+<dl>
+	<dt>Type Code</dt>
+	<dd>A short code identifying the activity type, up to 20 characters
+		(e.g. "call", "email", "meeting"). The code cannot be changed once
+		created.</dd>
+	<dt>Type Name</dt>
+	<dd>A descriptive name for display, up to 40 characters.</dd>
+	<dt>Active</dt>
+	<dd>Controls whether this activity type is available for selection.
+		Inactive types are hidden from new entries but retained for
+		historical records.</dd>
+</dl>
+<p>An activity type cannot be deleted if it is referenced by existing
+activity records. Deactivate it instead to prevent future use.</p>
+
+<p>The system is seeded with the following default activity types:
+Note, Phone Call, Email, Meeting, Task, and Demo.</p>
+
+<div class="floatright">
+	<a class="minitext" href="#top">⬆ Top</a>
+</div>
+
+<h2><a id="OpportunityPipeline">Opportunity Pipeline</a></h2>
+<p>The opportunity pipeline extends the CRM module with deal tracking from
+prospect through to close. Opportunities can be linked to a customer, a lead,
+or both (e.g. after lead conversion). The pipeline provides visual
+management of the sales funnel, probability-weighted forecasting, and
+stage-by-stage progress tracking.</p>
+
+<h3><a id="PipelineStages">Pipeline Stage Maintenance</a></h3>
+<p><strong>CRMPipelineStages.php</strong> maintains the configurable pipeline
+stages that opportunities move through. Each stage defines a default
+probability, a display sequence, and whether the stage represents a closed
+outcome.</p>
+<dl>
+	<dt>Stage Name</dt>
+	<dd>A descriptive name for the stage, up to 40 characters.</dd>
+	<dt>Probability %</dt>
+	<dd>The default win probability when an opportunity enters this stage.
+		For closed-won stages this is forced to 100; for closed-lost, 0.</dd>
+	<dt>Sequence</dt>
+	<dd>Determines the left-to-right display order of stages on the
+		pipeline board.</dd>
+	<dt>Closed Stage</dt>
+	<dd>If checked, the stage represents a final outcome. The closed
+		outcome must be set to either "won" or "lost".</dd>
+	<dt>Active</dt>
+	<dd>Controls whether the stage appears in selection lists. A stage
+		cannot be deactivated while it has open opportunities assigned.</dd>
+</dl>
+<p>A stage cannot be deleted if any opportunities are assigned to it. The
+system is seeded with default stages: Prospecting, Qualification, Needs
+Analysis, Value Proposition, Proposal/Quote, Negotiation, Closed Won,
+and Closed Lost.</p>
+
+<div class="floatright">
+	<a class="minitext" href="#top">⬆ Top</a>
+</div>
+
+<h3><a id="ManagingOpportunities">Managing Opportunities</a></h3>
+<p><strong>CRMOpportunities.php</strong> is the main list view for browsing
+and filtering opportunities. Filters include keywords, pipeline stage,
+assigned salesperson, and outcome (open, won, or lost). Filter selections
+are remembered in the session. The list shows each opportunity's name,
+customer or lead, stage, amount, weighted value, expected close date, and
+outcome.</p>
+
+<p><strong>CRMOpportunityEntry.php</strong> is used to create and edit
+opportunities.</p>
+<dl>
+	<dt>Opportunity Name</dt>
+	<dd>A short description of the deal.</dd>
+	<dt>Customer / Lead</dt>
+	<dd>At least one of these must be specified. A customer is selected from
+		the debtors master, a lead from the CRM leads table. Both can be set
+		simultaneously (e.g. after a lead has been converted).</dd>
+	<dt>Pipeline Stage</dt>
+	<dd>The current stage. Changing the stage automatically updates the
+		probability to the stage's default value. Selecting a closed stage
+		forces the probability and sets the outcome and closed-at date.</dd>
+	<dt>Probability</dt>
+	<dd>The estimated win probability (0–100%). Auto-filled from the stage
+		but can be manually adjusted for open stages.</dd>
+	<dt>Amount / Currency</dt>
+	<dd>The deal value and its currency.</dd>
+	<dt>Expected Close</dt>
+	<dd>The date the deal is expected to close.</dd>
+	<dt>Assigned To</dt>
+	<dd>The salesperson responsible for the opportunity.</dd>
+	<dt>Description</dt>
+	<dd>Detailed notes about the opportunity.</dd>
+</dl>
+<p>When an opportunity is moved to a closed-won stage the outcome is set to
+"won" and the probability is forced to 100%. For closed-lost the outcome is
+"lost" and probability is 0%. Moving an opportunity back to an open stage
+reverts the outcome to "open" and clears the closed-at date. Only open
+opportunities can be deleted.</p>
+
+<p><strong>CRMOpportunityInquiry.php</strong> provides a read-only view of
+all opportunity details including audit information (created by, updated by)
+and any linked sales orders.</p>
+
+<div class="floatright">
+	<a class="minitext" href="#top">⬆ Top</a>
+</div>
+
+<h3><a id="PipelineBoard">Pipeline Board</a></h3>
+<p><strong>CRMPipeline.php</strong> displays a visual pipeline board showing
+all active stages as columns with opportunity cards arranged within each
+column. Each card shows the opportunity name, customer or lead name, amount,
+and expected close date. Stage totals and a grand total are displayed at the
+bottom, grouped by currency.</p>
+
+<p>An optional salesperson filter narrows the view to a single salesperson's
+pipeline. Stages that have been deactivated are still shown if they contain
+open opportunities, ensuring no deals are hidden.</p>
+
+<div class="floatright">
+	<a class="minitext" href="#top">⬆ Top</a>
+</div>
+
+<h3><a id="Forecast">Forecast Report</a></h3>
+<p><strong>CRMForecast.php</strong> provides three forecast views of open
+opportunities, all using probability-weighted values grouped by currency:</p>
+<dl>
+	<dt>By Salesperson</dt>
+	<dd>Total pipeline value and weighted value per salesperson.</dd>
+	<dt>By Expected Close Month</dt>
+	<dd>Deals grouped by the month they are expected to close, showing
+		count, total value, and weighted value.</dd>
+	<dt>By Pipeline Stage</dt>
+	<dd>Deals grouped by their current stage, showing count, total value,
+		weighted value, and average probability.</dd>
+</dl>
+
+<div class="floatright">
+	<a class="minitext" href="#top">⬆ Top</a>
+</div>
+
+<h3><a id="LeadConversion">Lead Conversion and Opportunities</a></h3>
+<p>When a lead is converted to a customer via <strong>CRMLeadConvert.php</strong>,
+any open opportunities linked to that lead are automatically updated to
+reference the new customer code. This ensures a seamless transition from
+lead-based to customer-based opportunity tracking. The original lead ID is
+preserved on the opportunity for provenance.</p>
+
+<div class="floatright">
+	<a class="minitext" href="#top">⬆ Top</a>
+</div>
+
+<h2><a id="DatabaseTables">Database Tables</a></h2>
+<p>The CRM module uses the following database tables:</p>
+
+<h3><a id="CRMLeadsTable">crmleads</a></h3>
+<p>The main table storing all lead records.</p>
+<dl>
+	<dt>leadid</dt>
+	<dd>Auto-incrementing primary key.</dd>
+	<dt>firstname, lastname</dt>
+	<dd>Contact name fields.</dd>
+	<dt>company, jobtitle</dt>
+	<dd>Organisation and role information.</dd>
+	<dt>email, phone, mobile, website</dt>
+	<dd>Contact details.</dd>
+	<dt>industry</dt>
+	<dd>Industry sector.</dd>
+	<dt>sourceid</dt>
+	<dd>Foreign key to the crmleadsources table.</dd>
+	<dt>status</dt>
+	<dd>Workflow status: new, contacted, qualified, unqualified,
+		or converted.</dd>
+	<dt>assignedto</dt>
+	<dd>Foreign key to the salesman table (salesmancode).</dd>
+	<dt>estimatedvalue, currcode</dt>
+	<dd>The estimated opportunity value and its currency.</dd>
+	<dt>notes</dt>
+	<dd>Free-text notes.</dd>
+	<dt>convertedto, convertedat</dt>
+	<dd>When a lead is converted, these record the new customer code
+		and the conversion timestamp.</dd>
+	<dt>createdat, createdby, updatedat, updatedby</dt>
+	<dd>Audit trail fields.</dd>
+</dl>
+
+<h3><a id="CRMLeadSourcesTable">crmleadsources</a></h3>
+<p>Reference table for lead acquisition sources.</p>
+<dl>
+	<dt>sourceid</dt>
+	<dd>Auto-incrementing primary key.</dd>
+	<dt>sourcename</dt>
+	<dd>Descriptive name (up to 40 characters).</dd>
+	<dt>active</dt>
+	<dd>Boolean flag (1 = active, 0 = inactive).</dd>
+</dl>
+
+<h3><a id="CRMActivityTypesTable">crmactivitytypes</a></h3>
+<p>Reference table for activity type classifications.</p>
+<dl>
+	<dt>typecode</dt>
+	<dd>Primary key, short code (up to 20 characters).</dd>
+	<dt>typename</dt>
+	<dd>Descriptive name (up to 40 characters).</dd>
+	<dt>active</dt>
+	<dd>Boolean flag (1 = active, 0 = inactive).</dd>
+</dl>
+
+<div class="floatright">
+	<a class="minitext" href="#top">⬆ Top</a>
+</div>
+
+<h3><a id="CRMPipelineStagesTable">crmpipelinestages</a></h3>
+<p>Configurable pipeline stages for opportunity tracking.</p>
+<dl>
+	<dt>stageid</dt>
+	<dd>Auto-incrementing primary key.</dd>
+	<dt>stagename</dt>
+	<dd>Descriptive name (up to 40 characters).</dd>
+	<dt>probability</dt>
+	<dd>Default win probability for the stage (0–100%).</dd>
+	<dt>sequence</dt>
+	<dd>Display order on the pipeline board.</dd>
+	<dt>isclosed</dt>
+	<dd>Boolean flag indicating a terminal stage (1 = closed, 0 = open).</dd>
+	<dt>closedoutcome</dt>
+	<dd>For closed stages: "won" or "lost". Empty for open stages.</dd>
+	<dt>active</dt>
+	<dd>Boolean flag (1 = active, 0 = inactive).</dd>
+</dl>
+
+<h3><a id="CRMOpportunitiesTable">crmopportunities</a></h3>
+<p>Sales opportunities tracked through the pipeline.</p>
+<dl>
+	<dt>oppid</dt>
+	<dd>Auto-incrementing primary key.</dd>
+	<dt>oppname</dt>
+	<dd>Short description of the deal (up to 80 characters).</dd>
+	<dt>debtorno</dt>
+	<dd>Foreign key to debtorsmaster. May be empty if only a lead is linked.</dd>
+	<dt>leadid</dt>
+	<dd>Foreign key to crmleads. May be zero if only a customer is linked.</dd>
+	<dt>stageid</dt>
+	<dd>Foreign key to crmpipelinestages.</dd>
+	<dt>probability</dt>
+	<dd>Win probability (0–100%). Auto-set from stage but manually adjustable
+		for open stages.</dd>
+	<dt>amount, currcode</dt>
+	<dd>Deal value and its currency.</dd>
+	<dt>expectedclose</dt>
+	<dd>Date the deal is expected to close.</dd>
+	<dt>assignedto</dt>
+	<dd>Foreign key to the salesman table (salesmancode).</dd>
+	<dt>description</dt>
+	<dd>Detailed notes about the opportunity.</dd>
+	<dt>outcome</dt>
+	<dd>Current outcome: "open", "won", or "lost".</dd>
+	<dt>lostnotes</dt>
+	<dd>Notes recorded when an opportunity is lost.</dd>
+	<dt>closedat</dt>
+	<dd>Timestamp when the opportunity was closed (won or lost).</dd>
+	<dt>createdat, createdby, updatedat, updatedby</dt>
+	<dd>Audit trail fields.</dd>
+</dl>
+
+<hr />
+
+<h2><a id="Activities">Activity Management</a></h2>
+
+<p>The activity management system provides a unified log of all sales-related
+interactions — phone calls, emails, meetings, tasks, demos, and notes — linked
+to customers, leads, or opportunities. Activities can be scheduled for the
+future, completed, or cancelled.</p>
+
+<h3><a id="CRMActivities">CRM Activities (CRMActivities.php)</a></h3>
+<p>Lists all CRM activities with session-persistent filters:</p>
+<ul>
+	<li><strong>Type</strong> — Filter by activity type (call, email, meeting, etc.)</li>
+	<li><strong>Assigned To</strong> — Filter by the responsible salesperson</li>
+	<li><strong>Status</strong> — Planned, Completed, Cancelled, or All</li>
+	<li><strong>Date From / Date To</strong> — Filter by scheduled date range</li>
+	<li><strong>Keywords</strong> — Search by subject or linked entity name</li>
+</ul>
+<p>Each activity links to its edit page.</p>
+
+<h3><a id="CRMActivityEntry">Activity Entry (CRMActivityEntry.php)</a></h3>
+<p>Create or edit a CRM activity. Fields include:</p>
+<ul>
+	<li><strong>Activity Type</strong> — Selected from the activity types reference table</li>
+	<li><strong>Subject</strong> — Brief description of the interaction (required)</li>
+	<li><strong>Description</strong> — Detailed notes about the activity</li>
+	<li><strong>Customer / Contact / Lead / Opportunity</strong> — Link to one or more entities</li>
+	<li><strong>Assigned To</strong> — Salesperson responsible (defaults to current user)</li>
+	<li><strong>Scheduled Start / End</strong> — When the activity is planned</li>
+	<li><strong>Duration</strong> — Auto-calculated from start and end, or entered manually</li>
+	<li><strong>Status</strong> — Planned, Completed, or Cancelled</li>
+	<li><strong>Outcome / Outcome Details</strong> — Result of the activity</li>
+	<li><strong>Follow-up Date</strong> — Date for a follow-up action</li>
+</ul>
+<p>The entry form can be pre-populated by passing GET parameters:
+<code>?DebtorNo=X</code>, <code>?LeadId=X</code>, <code>?OppId=X</code>,
+or <code>?ScheduledDate=YYYY-MM-DD</code> (used by the calendar).</p>
+<p>When the status changes to Completed, the completion timestamp is recorded
+automatically. If an already-completed activity is edited, the original
+completion time is preserved.</p>
+
+<h3><a id="CRMCalendar">CRM Calendar (CRMCalendar.php)</a></h3>
+<p>A monthly calendar view showing scheduled activities. Features:</p>
+<ul>
+	<li>Navigate between months using Previous / Next links</li>
+	<li>Today's date is highlighted with a yellow background</li>
+	<li>Each activity subject is shown as a link to its edit page</li>
+	<li>A <strong>+</strong> link on each day creates a new activity pre-filled with that date</li>
+	<li>Completed activities are shown with strikethrough text</li>
+	<li>Salespeople see only their own activities; managers see all</li>
+</ul>
+
+<h3><a id="CRMMyActivities">My Activities (CRMMyActivities.php)</a></h3>
+<p>A personal dashboard for the logged-in salesperson showing three sections:</p>
+<dl>
+	<dt>Overdue</dt>
+	<dd>Planned activities whose scheduled date has passed. Highlighted in red
+	to draw attention. Each has a Complete button and an Edit link.</dd>
+	<dt>Today</dt>
+	<dd>Activities scheduled for the current day, showing the time portion.
+	Each has a Complete button and an Edit link.</dd>
+	<dt>Upcoming (Next 7 Days)</dt>
+	<dd>Activities scheduled within the next week. Provides advance visibility
+	of the upcoming workload.</dd>
+</dl>
+<p>The Complete button uses a POST form to mark the activity as completed and
+record the completion timestamp. Only planned activities can be completed.</p>
+
+<h3><a id="crmactivities_table">Database Table: crmactivities</a></h3>
+<dl>
+	<dt>activityid</dt>
+	<dd>Auto-incrementing primary key.</dd>
+	<dt>activitytype</dt>
+	<dd>Foreign key to <code>crmactivitytypes.typecode</code> (e.g. call, email, meeting).</dd>
+	<dt>subject</dt>
+	<dd>Brief summary of the activity (max 120 characters).</dd>
+	<dt>description</dt>
+	<dd>Detailed notes about the activity.</dd>
+	<dt>debtorno, leadid, oppid, contid</dt>
+	<dd>Optional links to a customer, lead, opportunity, or contact.</dd>
+	<dt>assignedto</dt>
+	<dd>Salesperson code from the <code>salesman</code> table.</dd>
+	<dt>scheduledstart, scheduledend</dt>
+	<dd>Date and time range when the activity is scheduled.</dd>
+	<dt>durationmins</dt>
+	<dd>Duration in minutes, auto-calculated or manually entered.</dd>
+	<dt>status</dt>
+	<dd>One of: planned, completed, cancelled.</dd>
+	<dt>outcome, outcomedesc</dt>
+	<dd>Brief outcome keyword and detailed description of the result.</dd>
+	<dt>followupdate</dt>
+	<dd>Date for a follow-up action.</dd>
+	<dt>completedat</dt>
+	<dd>Timestamp when the activity was marked as completed.</dd>
+	<dt>createdat, createdby</dt>
+	<dd>Audit trail fields.</dd>
+</dl>
+
+<div class="floatright">
+	<a class="minitext" href="#top">⬆ Top</a>
+</div>
+
+</article>

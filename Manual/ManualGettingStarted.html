@@ -29,7 +29,7 @@
 
 </ol>
 
-<p>If integration with a company knowledge base is required then an installation of Wacko Wiki or Media Wiki is recommended. The wiki installation should be on the same web-server. This is entirely optional but is highly recommended as a way to share free form information across the business. <a href="https://wackowiki.org/">Download Wacko Wiki</a></p>
+<p>If integration with a company knowledge base is required then an installation of Wacko Wiki or Media Wiki is recommended. The wiki installation should be on the same web-server. This is entirely optional but is highly recommended as a way to share free form information across the business. <a href="hhttp://wackowiki.org/">Download Wacko Wiki</a></p>
 
 <p>The ftp library for PHP is only required for sending order files to a Radio Beacon ftp server for remote warehouse services.</p>
 
@@ -51,24 +51,24 @@
     <li>Enter the URL for the new webERP directory into your web browser, and the installer welcome screen will display:</li>
 
     <li style="list-style: none; display: inline">
-        <p align="center"><img src="Manual/images/Installer_1.jpg"></p>
+        <p align="center"><img src="doc/Manual/images/Installer_1.jpg"></p>
     </li>
 
     <li>The installer welcome screen provides information on the type of messages you might receive during installation. At this page, you must also select your preferred language from the drop down selection box. Click on Next Step to go to the next phase of installation.</li>
     <li style="list-style: none; display: inline">
-        <p align="center"><img src="Manual/images/Installer_1a.jpg"></p>
+        <p align="center"><img src="doc/Manual/images/Installer_1a.jpg"></p>
     </li>
 
     <li>The installer checks that all the pre-requistes are met for an installation. You will note from the screen shot above that this installation does not have sufficient privileges to install webERP because the web server is unable to write to the webERP directory. <b>It is necessary to change the permissions on the directory where webERP is installed to ensure that the user that the web-server runs as is able to write a new configuration file to the web space.</b> Cpanel and Plesk have facilities to enable this change to the permissions. Any error messages displayed in red need to be resolved before the installation can proceed. Do not attempt to run the installer while red messages persist. Fix the error and then click on Check Again to restart from the prior step.</li>
     <li style="list-style: none; display: inline">
-        <p align="center"><img src="Manual/images/Installer_2.jpg"></p>
+        <p align="center"><img src="doc/Manual/images/Installer_2.jpg"></p>
     </li>
     <li>If your web server fulfills all requirements for the installation, clicking on Next Step will display the Database Settings screen. Many of the fields required will be populated correctly by default - but all entries should be reviewed to ensure that they are correct. The installer will not be able to determine the host (computer) where the mysql database server is installed and this must be entered. Help appears when you click into an input field.</li>
 
     <li>The user name and the password to the mysql database server are also required. The mysql database user must have permission to create a database and tables. Once the required information is entered and checked, click on Next Screen to continue.</li>
 
     <li style="list-style: none; display: inline">
-        <p align="center"><img src="Manual/images/Installer_3.jpg"></p>
+        <p align="center"><img src="doc/Manual/images/Installer_3.jpg"></p>
     </li>
 
     <li>The next installer screen displays Company Settings, Options and Administrator Account settings. The name of the company entered in the installer screen will be used in the log in screen and in various reports and screens in your final webERP instsallation.</li>
@@ -106,7 +106,7 @@
 
 <h3>Copying the PHP Scripts</h3>
 
-<p>All files in the archive except the installation instructions in INSTALL.txt, weberp-demo.sql and weberp-new.sql should be copied to a directory under the web server DocumentRoot directory. This varies by distribution but:</p>
+<p>All files in the archive should be copied to a directory under the web server DocumentRoot directory. This varies by distribution but:</p>
 
 <p>/srv/www/htdocs</p>
 
@@ -150,23 +150,18 @@ mysql&gt; GRANT ALL PRIVILEGES ON *.* TO weberp@localhost IDENTIFIED BY 'some_pa
 
 <p>If you have an account set up already in MySQL and Innodb tables enabled, then all you need to do is to run one of the sql scripts.</p>
 
-<p>Two scripts are provided in the webERP/sql/mysql/country_sql/ directory (folder):</p>
+<p>A scripts is provided in the webERP/install/sql/ directory (folder):</p>
 
 <ol>
-    <li>weberp-demo.sql This has a minimal amount of demonstration data with a bogus company set up so that transactions can be tried to see how the system works.</li>
-
-    <li>weberp-new.sql This script has only the basic data necessary to start a new company. If you wish to set up your company using the webERP software, then this is the script to use. This creates a webERP database and populates it with only the very basic starting data.</li>
+    <li>demo.sql This has a minimal amount of demonstration data with a bogus company set up so that transactions can be tried to see how the system works.</li>
 </ol>
 
-<p>The files weberp-demo.sql and web-erp-new.sql should be in the directory with all the PHP scripts. Change to the directory where the scripts are held or use the full path and enter:</p>
+<p>Change to the directory where the scripts are held or use the full path and enter:</p>
 
-<p>shell &gt; mysql --user=weberp --password='some_pass' &lt; path_to_web_server/webERP/sql/mysql/country_sql/weberp-demo.sql</p>
+<p>shell &gt; mysql --user=weberp --password='some_pass' &lt; path_to_web_server/webERP/install/sql/demo.sql</p>
 
-<p>or</p>
 
-<p>shell &gt; mysql --user=weberp --password='some_pass' &lt; path_to_web_server/webERP/sql/mysql/country_sql/weberp-new.sql</p>
-
-<p>as required. Modify the user entered here as 'weberp' to the user you created in MySQL for the purpose, and modify the password stated here as 'some_pass' to the password appropriate for the user. Also modify the path_to_the_sql_script to the appropriate path - perhaps something like /srv/www/htdocs/webERP/.</p>
+<p>Modify the user entered here as 'weberp' to the user you created in MySQL for the purpose, and modify the password stated here as 'some_pass' to the password appropriate for the user. Also modify the path_to_the_sql_script to the appropriate path - perhaps something like /srv/www/htdocs/webERP/.</p>
 
 <h3>Editing config.php</h3>
 
@@ -206,12 +201,11 @@ mysql&gt; GRANT ALL PRIVILEGES ON *.* TO weberp@localhost IDENTIFIED BY 'some_pa
         // putenv('TZ=Pacific/Auckland');
 
         // Connection information for the database
-        // $host is the computer ip address or name where the database is located
+        // $Host is the computer ip address or name where the database is located
         // assuming that the web server is also the sql server
-        $host = 'localhost';
-        $mysqlport=3306;
-        //The type of db server being used - currently only mysqli or mysql
-        //$DBType = 'mysql';
+        $Host = 'localhost';
+        $DBPort=3306;
+        //The type of db server being used - currently only mysqli or mariadb
         //$DBType = 'mysqli';
 
         // sql user & password
@@ -369,7 +363,7 @@ enter password 'weberp'<br></p>
 
 <p>To change the language displayed for a specific user - the user clicks on their name as shown on every screen at the top of the page. This brings up their user settings.</p>
 
-<p align="center"><img src="Manual/images/UserSettings.jpg"></p>
+<p align="center"><img src="doc/Manual/images/UserSettings.jpg"></p>
 
 <p>webERP looks at all the directories available under webERP/locale to see which languages are installed and provides a convenient way for users to select their preferred language. In addition to selecting the language it is also necessary to select the fonts required for pdf support in the selected language.</p>
 
@@ -381,4 +375,4 @@ enter password 'weberp'<br></p>
 
 <p>PDFs are produced in utf-8 character set which has 4 bytes for each character. Unfortunately, the CID fonts used in PDFs only have 2 bytes so there is required to be some mapping of CID characters to utf-8 fonts to make everything work. In practise all this means is that the correct language needs also to be selected for the PDF language.</p>
 
-<p>If you are interested in contributing a language pack to webERP - which is always very much appreciated! There are instructions for how to proceed at http://www.weberp.org/wiki/HowToTranslate</p><!-- Help End: WWW_Users -->
+<p>If you are interested in contributing a language pack to webERP - which is always very much appreciated! There are instructions for how to proceed at https://www.weberp.org/wiki/HowToTranslate</p><!-- Help End: WWW_Users -->
