@@ -146,6 +146,8 @@ margin: 0 auto;
 border-radius:5px;
 border-color:var(--about-border);
 border:2px solid;
+padding:35px;
+padding-top:5px;
 }
 .about-link{
 color:black;
@@ -170,6 +172,7 @@ margin:1em;
 width:300px;
 height:300px;
 aspect-ratio:1;
+border-radius:19px;
 }
 .items-container {
 display: grid;
