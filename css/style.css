@@ -153,6 +153,14 @@ padding-top:5px;
 color:black;
 font-weight:bold;
 }
+a {
+color:black;
+font-weight:bold;
+}
+a:visited {
+color:black;
+font-weight:bold;
+}
 legend {
 background-color:#4682B4;
 padding-left:10px;
