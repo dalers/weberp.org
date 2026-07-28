@@ -177,8 +177,6 @@ display:inline-flex;
 #LoginImage{
 float:right;
 margin:1em;
-width:300px;
-height:300px;
 aspect-ratio:1;
 border-radius:19px;
 }
