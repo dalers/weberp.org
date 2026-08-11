@@ -24,10 +24,12 @@
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 
-	<body id="home">
-		<header>
-			<a href="./index.html" class="ItemLink">
-				<div id="logo">
+	<body id="home" itemscope itemtype="https://schema.org/WebPage">
+		<header itemscope itemtype="https://schema.org/WPHeader">
+			<a href="./index.html" class="ItemLink" itemprop="url">
+				<div id="logo" itemscope itemtype="https://schema.org/Organization" itemprop="publisher">
+					<meta itemprop="name" content="webERP">
+					<meta itemprop="url" content="https://www.weberp.org">
 					<div class="logo logo-left">web</div><div class="logo logo-right">ERP</div>
 				</div>
 			</a>
@@ -76,9 +78,10 @@
 				</div>
 			</span>
 		</header>
-		<section>
-			<h1>Contribute to webERP</h1>
-			<p>There are many ways people can contribute to webERP. You don't necessarily have to be a programmer to make a difference. There are also opportunities for documentation writers,
+		<section itemscope itemtype="https://schema.org/Article">
+			<meta itemprop="headline" content="How to Contribute to webERP | Development Opportunities">
+			<h1 itemprop="name">Contribute to webERP</h1>
+			<p itemprop="articleBody">There are many ways people can contribute to webERP. You don't necessarily have to be a programmer to make a difference. There are also opportunities for documentation writers,
 			graphic designers, and translators</p>
 			<h2>Developers</h2>
 			<p>Mostly, webERP is written in PHP, but there is also HTML, JavaScript, and CSS code.</p>
@@ -93,7 +96,7 @@
 				<p>This is hugely wasteful, as there is a huge amount of CSS that is duplicated in both aguapop and aguapop-rtl themes. When one of them is altered the developer needs
 		to remember to alter both.</p></li>
 		</section>
-		<footer>
+		<footer itemscope itemtype="https://schema.org/WPFooter">
 		<div class="badges-container">
 		<!-- Begin SF Tag -->
 			<a href="https://sourceforge.net/projects/web-erp/?pk_campaign=badge&pk_source=vendor">

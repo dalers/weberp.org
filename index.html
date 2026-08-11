@@ -62,11 +62,13 @@
 		</script>
 	</head>
 
-	<body>
-		<header>
+	<body itemscope itemtype="https://schema.org/WebPage">
+		<header itemscope itemtype="https://schema.org/WPHeader">
 
-			<a href="./index.html" class="ItemLink">
-				<div id="logo" title="webERP - Practical Web-Based Open-Source ERP Software" alt="Practical Web-Based Open-Source ERP Software">
+			<a href="./index.html" class="ItemLink" itemprop="url">
+				<div id="logo" title="webERP - Practical Web-Based Open-Source ERP Software" alt="Practical Web-Based Open-Source ERP Software" itemscope itemtype="https://schema.org/Organization" itemprop="publisher">
+					<meta itemprop="name" content="webERP">
+					<meta itemprop="url" content="https://www.weberp.org">
 					<div class="logo logo-left">web</div><div class="logo logo-right">ERP</div>
 				</div>
 			</a>
@@ -75,14 +77,16 @@
 		</header>
 
 		<main>
-			<fieldset class="about">
-				<legend>About webERP</legend>
-				<video id="LoginImage" width="480" height="240" controls>
+			<fieldset class="about" itemscope itemtype="https://schema.org/SoftwareApplication">
+				<legend itemprop="name">About webERP</legend>
+				<video id="LoginImage" width="480" height="240" controls itemprop="video">
   					<source src="images/webERP.mp4" type="video/mp4">
 					Your browser does not support the video tag.
 				</video>
-				<h1>Open Source ERP Software for Modern Business Management</h1>
-				<p>webERP is a complete web-based open-source accounting, business management and ERP (Enterprise Resource Planning) system built for businesses of all sizes. Unlike expensive proprietary ERP systems, webERP is free, flexible, and fully customizable.</p>
+				<meta itemprop="applicationCategory" content="BusinessApplication">
+				<meta itemprop="operatingSystem" content="Web">
+				<h1 itemprop="headline">Open Source ERP Software for Modern Business Management</h1>
+				<p itemprop="description">webERP is a complete web-based open-source accounting, business management and ERP (Enterprise Resource Planning) system built for businesses of all sizes. Unlike expensive proprietary ERP systems, webERP is free, flexible, and fully customizable.</p>
 				<p><strong>Why Choose webERP?</strong></p>
 				<ul>
 					<li><strong>100% Free &amp; Open Source</strong> — GNU Public License v2. No licensing fees, no hidden costs.</li>
@@ -101,62 +105,63 @@
 			</fieldset>
 		</main>
 
-		<nav>
+		<nav itemscope itemtype="https://schema.org/SiteNavigationElement">
 			<div class="items-container">
-				<a class="ItemLink" href="./Features.html" target="_blank" title="Click here to review webERP features">
-					<div>
+				<a class="ItemLink" href="./Features.html" target="_blank" title="Click here to review webERP features" itemprop="url">
+					<div itemscope itemtype="https://schema.org/WebPage">
 						<img class="icons" src="images/features.avif" title="webERP Features - See complete list of ERP system features" alt="ERP Features" />
-						<span class="title">Features</span>
-						<p>webERP has all the features you would expect in a modern professional ERP system.</p>
+						<span class="title" itemprop="name">Features</span>
+						<p itemprop="description">webERP has all the features you would expect in a modern professional ERP system.</p>
 						<p>Click here to review all the features offered by webERP</p>
 					</div>
 				</a>
-				<a class="ItemLink" href="https://github.com/timschofield/webERP/discussions" target="_blank" title="Click here to start a Discussion">
-					<div>
+				<a class="ItemLink" href="https://github.com/timschofield/webERP/discussions" target="_blank" title="Click here to start a Discussion" itemprop="url">
+					<div itemscope itemtype="https://schema.org/WebPage">
 						<img class="icons" src="images/discussions.avif" title="Join webERP Community Discussions on GitHub" alt="Community Discussions" />
-						<span class="title">Discussions</span>
-						<p>GitHub Discussions are the primary method of communication for the webERP community.</p>
+						<span class="title" itemprop="name">Discussions</span>
+						<p itemprop="description">GitHub Discussions are the primary method of communication for the webERP community.</p>
 						<p>Click here to start a discussion</p>
 					</div>
 				</a>
-				<a class="ItemLink" href="./Development.html" target="_blank" title="Click here for developer documentation">
-					<div>
+				<a class="ItemLink" href="./Development.html" target="_blank" title="Click here for developer documentation" itemprop="url">
+					<div itemscope itemtype="https://schema.org/WebPage">
 						<img class="icons" src="images/software.avif" title="Contribute to webERP Development - Developer Documentation" alt="Developer Guide" />
-						<span class="title">Developers</span>
-						<p>Submitting improvements is encouraged.</p>
+						<span class="title" itemprop="name">Developers</span>
+						<p itemprop="description">Submitting improvements is encouraged.</p>
 						<p>Click here for developer documentation</p>
 					</div>
 				</a>
-				<a class="ItemLink" href="https://github.com/timschofield/webERP/releases" target="_blank" title="Click here to download a release">
-					<div>
+				<a class="ItemLink" href="https://github.com/timschofield/webERP/releases" target="_blank" title="Click here to download a release" itemprop="url">
+					<div itemscope itemtype="https://schema.org/WebPage">
 						<img class="icons" src="images/downloads.avif" title="Download webERP Releases from GitHub" alt="Download ERP Software" />
-						<span class="title">Code</span>
-						<p>Download webERP releases from GitHub.</p>
+						<span class="title" itemprop="name">Code</span>
+						<p itemprop="description">Download webERP releases from GitHub.</p>
 						<p>Click here to download a zip or tar.gz release archive</p>
 					</div>
 				</a>
-				<a class="ItemLink" href="https://www.weberp.org/demo" target="_blank" title="Click here to try webERP">
-					<div>
+				<a class="ItemLink" href="https://www.weberp.org/demo" target="_blank" title="Click here to try webERP" itemprop="url">
+					<div itemscope itemtype="https://schema.org/WebPage">
 						<img class="icons" src="images/demo.avif" title="Try webERP Live Demo - No Installation Required" alt="Live ERP Demo" />
-						<span class="title">Demo</span>
-						<p>Try webERP online</p>
+						<span class="title" itemprop="name">Demo</span>
+						<p itemprop="description">Try webERP online</p>
 						<p> Click here to try webERP (v5 head, reset hourly)</p>
 					</div>
 				</a>
-				<a class="ItemLink" href="./Documentation.html" target="_blank" title="Click here for User Manual">
-					<div>
+				<a class="ItemLink" href="./Documentation.html" target="_blank" title="Click here for User Manual" itemprop="url">
+					<div itemscope itemtype="https://schema.org/WebPage">
 						<img class="icons" src="images/documentation.avif" title="webERP User Guides and Documentation" alt="User Documentation" />
-						<span class="title">Manual</span>
-						<p>Interactive and PDF Users Manual</p>
+						<span class="title" itemprop="name">Manual</span>
+						<p itemprop="description">Interactive and PDF Users Manual</p>
 						<p>Click here to access the Users Manual</p>
 					</div>
 				</a>
 			</nav>
 		</div>
 
-		<article>
+		<article itemscope itemtype="https://schema.org/Article">
 			<fieldset class="about">
 				<legend><img class="icons" src="images/socialmedia.avif" title="Icon downloaded from here - https://www.flaticon.com/free-icons/download" alt="Social Media" />Social Media</legend>
+				<meta itemprop="headline" content="Social Media">
 
 				<ul>
 					<li><a class="about-link" target="_blank" href="https://github.com/timschofield/webERP/issues/new/choose">Report an issue with webERP, or request a new feature</a></li>
@@ -169,9 +174,10 @@
 
 		<p></p>
 
-		<article>
+		<article itemscope itemtype="https://schema.org/Article">
 			<fieldset class="about">
 				<legend><img class="icons" src="images/news.avif" title="Icon downloaded from here - https://www.flaticon.com/free-icons/download" alt="Latest News" />Latest News</legend>
+				<meta itemprop="headline" content="Latest News">
 
 				<ul>
 					<li>2026-03-19 A new forecasting module has been committed to the webERP project. Read the announcement <a class="about-link" href="https://github.com/timschofield/webERP/discussions/876" target="_blank">here.</a></li>
@@ -192,7 +198,7 @@
 			</fieldset>
 		</article>
 
-		<footer>
+		<footer itemscope itemtype="https://schema.org/WPFooter">
 			<div class="badges-container">
 			<!-- Begin SF Tag -->
 				<a href="https://sourceforge.net/projects/web-erp/?pk_campaign=badge&pk_source=vendor">

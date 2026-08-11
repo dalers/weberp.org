@@ -24,10 +24,12 @@
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 
-	<body id="home">
-		<header>
-			<a href="./index.html" class="ItemLink">
-				<div id="logo">
+	<body id="home" itemscope itemtype="https://schema.org/WebPage">
+		<header itemscope itemtype="https://schema.org/WPHeader">
+			<a href="./index.html" class="ItemLink" itemprop="url">
+				<div id="logo" itemscope itemtype="https://schema.org/Organization" itemprop="publisher">
+					<meta itemprop="name" content="webERP">
+					<meta itemprop="url" content="https://www.weberp.org">
 					<div class="logo logo-left">web</div><div class="logo logo-right">ERP</div>
 				</div>
 			</a>
@@ -76,14 +78,15 @@
 				</div>
 			</span>
 		</header>
-		<section>
-			<h1>Complete ERP Features for Your Business</h1>
-			<p>webERP provides a comprehensive suite of features designed for modern business management. Whether you need accounting software, inventory management, or complete business administration tools, webERP has you covered.</p>
+		<section itemscope itemtype="https://schema.org/ItemList">
+			<h1 itemprop="name">Complete ERP Features for Your Business</h1>
+			<p itemprop="description">webERP provides a comprehensive suite of features designed for modern business management. Whether you need accounting software, inventory management, or complete business administration tools, webERP has you covered.</p>
 			<p><strong>Key Benefits:</strong> All-in-one solution, no licensing fees, fully open-source, easy to customize, and designed for business users.</p>
 			<p>If you don't see a feature you need, please post to the project <a href="https://github.com/timschofield/webERP/discussions">Discussions forum</a> using the <b><i>How To?</i></b> category.</p>
 			<h2>Feature Categories</h2>
-			<fieldset class="feature">
-				<legend><img class="icons" src="images/general.avif" title="Icon downloaded from here - https://www.flaticon.com/free-icons/download" alt="General Features" /><span class="legend-text">General</span></legend>
+			<fieldset class="feature" itemscope itemtype="https://schema.org/ListItem">
+				<meta itemprop="position" content="1">
+				<legend itemprop="name"><img class="icons" src="images/general.avif" title="Icon downloaded from here - https://www.flaticon.com/free-icons/download" alt="General Features" /><span class="legend-text">General</span></legend>
 				<p><strong>Core capabilities:</strong> Web-based access, no software installation, readable code for customization, PDF reports, 37 languages, and 9 themes.</p>
 				<ul>
 					<li>Entirely web-based. Can be used on any web server that supports PHP. Use your own server or a managed server from an ISP to avoid purchase and maintenance costs.</li>
@@ -97,8 +100,9 @@
 					<li>Items, Suppliers and Customers have optional Wiki integration for storing related notes. For example, notes on Item use or approved OEMs, Supplier account information or detailed contact information, or Customer credit history or contact history for service, sales and payments.</li>
 				</ul>
 			</fieldset>
-			<fieldset class="feature">
-				<legend><img class="icons" src="images/lock.avif" title="Icon downloaded from here - https://www.flaticon.com/free-icons/download" alt="Security Features" /><span class="legend-text">Security</span></legend>
+			<fieldset class="feature" itemscope itemtype="https://schema.org/ListItem">
+				<meta itemprop="position" content="2">
+				<legend itemprop="name"><img class="icons" src="images/lock.avif" title="Icon downloaded from here - https://www.flaticon.com/free-icons/download" alt="Security Features" /><span class="legend-text">Security</span></legend>
 				<p><strong>Enterprise-grade security:</strong> Role-based access control, location restrictions, SSL encryption, audit trails, and SQL injection prevention.</p>
 				<ul>
 					<li>Users can be defined with access to only certain options using a role based model.</li>
@@ -115,8 +119,9 @@
 					<li>All data is sanitised to prevent SQL injection and cross-site scripting.</li>
 				</ul>
 			</fieldset>
-			<fieldset class="feature">
-				<legend><img class="icons" src="images/sales.avif" title="Icon downloaded from here - https://www.flaticon.com/free-icons/download" alt="Sales and Orders" /><span class="legend-text">Sales and Orders</span></legend>
+			<fieldset class="feature" itemscope itemtype="https://schema.org/ListItem">
+				<meta itemprop="position" content="3">
+				<legend itemprop="name"><img class="icons" src="images/sales.avif" title="Icon downloaded from here - https://www.flaticon.com/free-icons/download" alt="Sales and Orders" /><span class="legend-text">Sales and Orders</span></legend>
 				<p><strong>Complete sales management:</strong> Quotations, orders, customer tracking, demand forecasting, and invoice management integrated with customer orders.</p>
 				<ul>
 					<li>Quotations can be entered and printed as quotations then changed to an order if the customer accepts without re-entering</li>
@@ -144,8 +149,9 @@
 					<li>Delivery In Full On Time reporting</li>
 				</ul>
 			</fieldset>
-			<fieldset class="feature">
-				<legend><img class="icons" src="images/tax.avif" title="Icon downloaded from here - https://www.flaticon.com/free-icons/download" alt="Taxes" /><span class="legend-text">Taxes</span></legend>
+			<fieldset class="feature" itemscope itemtype="https://schema.org/ListItem">
+				<meta itemprop="position" content="4">
+				<legend itemprop="name"><img class="icons" src="images/tax.avif" title="Icon downloaded from here - https://www.flaticon.com/free-icons/download" alt="Taxes" /><span class="legend-text">Taxes</span></legend>
 				<ul>
 					<li>Very flexible taxation options suitable for Canada, US, South Africa, UK, Australia, NZ and most other countries Tax rates dependent on the type of product - using tax categories</li>
 					<li>Tax rates dependent on the location of the warehouse dispatched from Tax rates dependent on the location of the customer</li>
@@ -153,8 +159,9 @@
 					<li>Each tax posted to different user-definable general ledger accounts - if linked to AR/AP</li>
 				</ul>
 			</fieldset>
-			<fieldset class="feature">
-				<legend><img class="icons" src="images/ar.avif" title="Icon downloaded from here - https://www.flaticon.com/free-icons/download" alt="Accounts Receivable" /><span class="legend-text">Accounts Receivable</span></legend>
+			<fieldset class="feature" itemscope itemtype="https://schema.org/ListItem">
+				<meta itemprop="position" content="5">
+				<legend itemprop="name"><img class="icons" src="images/ar.avif" title="Icon downloaded from here - https://www.flaticon.com/free-icons/download" alt="Accounts Receivable" /><span class="legend-text">Accounts Receivable</span></legend>
 				<ul>
 				<li>Overdues inquiry that takes into account delivery days to the customer's branch and the actual (user definable) payment terms applicable to the customer, supported by detailed inquiry of actual invoices overdue.</li>
 				<li>Full on-screen inquiry on a customer's account, complete with invoice details and narrative which appeared on the invoice. Drill down to source document invoice or credit note.</li>
@@ -180,8 +187,9 @@
 				<li>Option to produce integrated google maps of customer locations (and suppliers)</li>
 				<ul>
 			</fieldset>
-			<fieldset class="feature">
-				<legend><img class="icons" src="images/inventory.avif" title="Icon downloaded from here - https://www.flaticon.com/free-icons/download" alt="Inventory" /><span class="legend-text">Inventory</span></legend>
+			<fieldset class="feature" itemscope itemtype="https://schema.org/ListItem">
+				<meta itemprop="position" content="6">
+				<legend itemprop="name"><img class="icons" src="images/inventory.avif" title="Icon downloaded from here - https://www.flaticon.com/free-icons/download" alt="Inventory" /><span class="legend-text">Inventory</span></legend>
 				<ul>
 					<li>Unlimited number of warehouses (stocking locations), stock quantities are maintained for an unlimited number of locations.</li>
 					<li>Selling prices for a stock item can be set for each sales type defined in any (and all) currency(ies) allowing great pricing flexibility</li>
@@ -208,8 +216,9 @@
 					<li>Weighted Average (automatic) or standard (manually maintained) costing</li>
 				</ul>
 			</fieldset>
-			<fieldset class="feature">
-				<legend><img class="icons" src="images/purchasing.avif" title="Icon downloaded from here - https://www.flaticon.com/free-icons/download" alt="Purchasing" /><span class="legend-text">Purchasing</span></legend>
+			<fieldset class="feature" itemscope itemtype="https://schema.org/ListItem">
+				<meta itemprop="position" content="7">
+				<legend itemprop="name"><img class="icons" src="images/purchasing.avif" title="Icon downloaded from here - https://www.flaticon.com/free-icons/download" alt="Purchasing" /><span class="legend-text">Purchasing</span></legend>
 				<ul>
 					<li>Purchase orders and suppliers can be in any currency.</li>
 					<li>Supplier item descriptions and pricing (in the currency of the supplier) for purchased items can be maintained.</li>
@@ -232,8 +241,9 @@
 					<li>Orders can be entered referring to the supplier's item code and description and in the suppliers unit, converting to the business units for all internal purposes.</li>
 				</ul>
 			</fieldset>
-			<fieldset class="feature">
-				<legend><img class="icons" src="images/ap.avif" title="Icon downloaded from here - https://www.flaticon.com/free-icons/download" alt="Accounts Payable" /><span class="legend-text">Accounts Payable</span></legend>
+			<fieldset class="feature" itemscope itemtype="https://schema.org/ListItem">
+				<meta itemprop="position" content="8">
+				<legend itemprop="name"><img class="icons" src="images/ap.avif" title="Icon downloaded from here - https://www.flaticon.com/free-icons/download" alt="Accounts Payable" /><span class="legend-text">Accounts Payable</span></legend>
 				<ul>
 					<li>Suppliers can be defined in any currency.</li>
 					<li>Invoices can be entered against goods received with a user definable allowance for over invoicing.</li>
@@ -252,8 +262,9 @@
 					<li>A petty cash expense reimbursement module is available for sales people to enter their claims.</li>
 				</ul>
 			</fieldset>
-			<fieldset class="feature">
-				<legend><img class="icons" src="images/bank.avif" title="Icon downloaded from here - https://www.flaticon.com/free-icons/download" alt="Bank" /><span class="legend-text">Bank</span></legend>
+			<fieldset class="feature" itemscope itemtype="https://schema.org/ListItem">
+				<meta itemprop="position" content="9">
+				<legend itemprop="name"><img class="icons" src="images/bank.avif" title="Icon downloaded from here - https://www.flaticon.com/free-icons/download" alt="Bank" /><span class="legend-text">Bank</span></legend>
 				<ul>
 					<li>As many bank accounts as required can be set up details and account number can be held against the bank account definition.</li>
 					<li>Bank accounts can be any currency and payments/receipts can be paid in any currency from any bank account.</li>
@@ -263,8 +274,9 @@
 					<li>Calculation and posting to GL of unrealised exchange differences in foreign currency bank account balances</li>
 				</ul>
 			</fieldset>
-			<fieldset class="feature">
-				<legend><img class="icons" src="images/gl.avif" title="Icon downloaded from here - https://www.flaticon.com/free-icons/download" alt="General Ledger" /><span class="legend-text">General Ledger</span></legend>
+			<fieldset class="feature" itemscope itemtype="https://schema.org/ListItem">
+				<meta itemprop="position" content="10">
+				<legend itemprop="name"><img class="icons" src="images/gl.avif" title="Icon downloaded from here - https://www.flaticon.com/free-icons/download" alt="General Ledger" /><span class="legend-text">General Ledger</span></legend>
 				<ul>
 					<li>Automatically maintained periods, reporting over any range of periods with no rollover procedure at period end.</li>
 					<li>Balance Sheet and Profit and Loss Statements Reporting against budget Inquiry on any account over any period.</li>
@@ -277,8 +289,9 @@
 					<li>Posting to prior periods can be disabled based on transaction date to prevent prior periods being changed.</li>
 				</ul>
 			</fieldset>
-			<fieldset class="feature">
-				<legend><img class="icons" src="images/manufacturing.avif" title="Icon downloaded from here - https://www.flaticon.com/free-icons/download" alt="Manufacturing" /><span class="legend-text">Manufacturing</span></legend>
+			<fieldset class="feature" itemscope itemtype="https://schema.org/ListItem">
+				<meta itemprop="position" content="11">
+				<legend itemprop="name"><img class="icons" src="images/manufacturing.avif" title="Icon downloaded from here - https://www.flaticon.com/free-icons/download" alt="Manufacturing" /><span class="legend-text">Manufacturing</span></legend>
 				<ul>
 					<li>Multi-level bill of materials - with error trapping to prevent recursive BOMs.</li>
 					<li>Phantom bills - automatically explode into components when a parent work order is created.</li>
@@ -294,8 +307,9 @@
 					<li>Fast full recursive calculation of MRP - (note that capacity requirements planning and MRP II functionality is NOT currently available in webERP).</li>
 				</ul>
 			</fieldset>
-			<fieldset class="feature">
-				<legend><img class="icons" src="images/demand.avif" title="Icon downloaded from here - https://www.flaticon.com/free-icons/download" alt="Forecasting" /><span class="legend-text">Forecasting</span></legend>
+			<fieldset class="feature" itemscope itemtype="https://schema.org/ListItem">
+				<meta itemprop="position" content="12">
+				<legend itemprop="name"><img class="icons" src="images/demand.avif" title="Icon downloaded from here - https://www.flaticon.com/free-icons/download" alt="Forecasting" /><span class="legend-text">Forecasting</span></legend>
 				<ul>
 					<li>Generate item-level (detail) forecasts using 12 different statistical methods</li>
 					<li>Process entire stock categories with a single operation (category forecasting)</li>
@@ -307,8 +321,9 @@
 					<li>Integrate forecasts with MRP and purchasing systems</li>
 				</ul>
 			</fieldset>
-			<fieldset class="feature">
-				<legend><img class="icons" src="images/contract.avif" title="Icon downloaded from here - https://www.flaticon.com/free-icons/download" alt="Contract Costing" /><span class="legend-text">Contract Costing</span></legend>
+			<fieldset class="feature" itemscope itemtype="https://schema.org/ListItem">
+				<meta itemprop="position" content="13">
+				<legend itemprop="name"><img class="icons" src="images/contract.avif" title="Icon downloaded from here - https://www.flaticon.com/free-icons/download" alt="Contract Costing" /><span class="legend-text">Contract Costing</span></legend>
 				<ul>
 					<li>Job costings can be created for a selected customer using stock and other requirements.</li>
 					<li>These can be converted into a quotation and if the quotation is accepted a sales order/work order.</li>
@@ -316,8 +331,9 @@
 					<li>Full report on contract/job variances from quoted costs</li>
 				</ul>
 			</fieldset>
-			<fieldset class="feature">
-				<legend><img class="icons" src="images/asset.avif" title="Icon downloaded from here - https://www.flaticon.com/free-icons/download" alt="Fixed Assets" /><span class="legend-text">Fixed Assets</span></legend>
+			<fieldset class="feature" itemscope itemtype="https://schema.org/ListItem">
+				<meta itemprop="position" content="14">
+				<legend itemprop="name"><img class="icons" src="images/asset.avif" title="Icon downloaded from here - https://www.flaticon.com/free-icons/download" alt="Fixed Assets" /><span class="legend-text">Fixed Assets</span></legend>
 				<ul>
 					<li>Asset additions through purchase orders or supplier invoice entry directly.</li>
 					<li>Disposals of fixed assets through normal sales order entry - asset to be disposed can be selected for sale.</li>
@@ -325,8 +341,9 @@
 					<li>Integrated GL entries created based on asset category GL codes if creditors and debtors are linked to GL.</li>
 				</ul>
 			</fieldset>
-					<fieldset class="feature">
-				<legend><img class="icons" src="images/general.avif" title="Icon downloaded from here - https://www.flaticon.com/free-icons/download" alt="Human Resources" /><span class="legend-text">Human Resources</span></legend>
+					<fieldset class="feature" itemscope itemtype="https://schema.org/ListItem">
+				<meta itemprop="position" content="15">
+				<legend itemprop="name"><img class="icons" src="images/general.avif" title="Icon downloaded from here - https://www.flaticon.com/free-icons/download" alt="Human Resources" /><span class="legend-text">Human Resources</span></legend>
 				<ul>
 					<li>Employee master records with contacts, roles, and employment history.</li>
 					<li>Leave and absence tracking with approval workflows and entitlement calculation.</li>
@@ -339,7 +356,7 @@
 				</ul>
 			</fieldset>
 		</section>
-		<footer>
+		<footer itemscope itemtype="https://schema.org/WPFooter">
 		<div class="badges-container">
 		<!-- Begin SF Tag -->
 			<a href="https://sourceforge.net/projects/web-erp/?pk_campaign=badge&pk_source=vendor">

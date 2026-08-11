@@ -26,10 +26,12 @@
 		<script async type="text/javascript" src = "fetch.js"></script>
 	</head>
 
-	<body id="home">
-		<header>
-			<a href="./index.html" class="ItemLink">
-				<div id="logo">
+	<body id="home" itemscope itemtype="https://schema.org/WebPage">
+		<header itemscope itemtype="https://schema.org/WPHeader">
+			<a href="./index.html" class="ItemLink" itemprop="url">
+				<div id="logo" itemscope itemtype="https://schema.org/Organization" itemprop="publisher">
+					<meta itemprop="name" content="webERP">
+					<meta itemprop="url" content="https://www.weberp.org">
 					<div class="logo logo-left">web</div><div class="logo logo-right">ERP</div>
 				</div>
 			</a>
@@ -79,153 +81,199 @@
 			</span>
 		</header>
 		<div class="about">
-			<p>The webERP Manual can also be <a href="./downloads/webERP.Manual.4.15.2.2025-09-03.pdf">downloaded as a 4MB PDF (click here)</a> (in the event of a difference, the online manual supercedes the PDF).</p>
+			<p itemprop="description">The webERP Manual can also be <a href="./downloads/webERP.Manual.4.15.2.2025-09-03.pdf">downloaded as a 4MB PDF (click here)</a> (in the event of a difference, the online manual supercedes the PDF).</p>
 			<p>See the <a href="https://github.com/timschofield/webERP/wiki">webERP project Wiki for developer information</a>.</p>
 		</div>
-		<div class="manual-container">
+		<div class="manual-container" itemscope itemtype="https://schema.org/ItemList">
 			<ul class="manual-index">
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualIntroduction.html')">Introduction</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="1">
+					<a href="#" itemprop="url"><span itemprop="name">Introduction</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualRequirements.html')">Requirements</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="2">
+					<a href="#" itemprop="url"><span itemprop="name">Requirements</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualGettingStarted.html')">Getting started</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="3">
+					<a href="#" itemprop="url"><span itemprop="name">Getting started</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualTranslation.html')">Translating webERP</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="4">
+					<a href="#" itemprop="url"><span itemprop="name">Translating webERP</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualSecuritySchema.html')">Security schema</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="5">
+					<a href="#" itemprop="url"><span itemprop="name">Security schema</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualCreatingNewSystem.html')">Creating a new system</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="6">
+					<a href="#" itemprop="url"><span itemprop="name">Creating a new system</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualDashboard.html')">Dashboard</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="7">
+					<a href="#" itemprop="url"><span itemprop="name">Dashboard</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualSystemConventions.html')">System Conventions</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="8">
+					<a href="#" itemprop="url"><span itemprop="name">System Conventions</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualInventory.html')">Inventory (aka "Stock")</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="9">
+					<a href="#" itemprop="url"><span itemprop="name">Inventory (aka "Stock")</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualAccountsReceivable.html#top')">Accounts Receivable</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="10">
+					<a href="#" itemprop="url"><span itemprop="name">Accounts Receivable</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualCreditNotes.html')">Creating Credit Notes</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="11">
+					<a href="#" itemprop="url"><span itemprop="name">Creating Credit Notes</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualAccountsPayable.html')">Accounts Payable</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="12">
+					<a href="#" itemprop="url"><span itemprop="name">Accounts Payable</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualSalesPeople.html')">Sales People</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="13">
+					<a href="#" itemprop="url"><span itemprop="name">Sales People</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualSalesTypes.html')">Sales types/price lists</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="14">
+					<a href="#" itemprop="url"><span itemprop="name">Sales types/price lists</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualPaymentTerms.html')">Payment terms</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="15">
+					<a href="#" itemprop="url"><span itemprop="name">Payment terms</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualCreditStatus.html')">Credit status</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="16">
+					<a href="#" itemprop="url"><span itemprop="name">Credit status</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualPrices.html')">Prices and Discounts</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="17">
+					<a href="#" itemprop="url"><span itemprop="name">Prices and Discounts</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualARTransactions.html')">Accounts Receivable Transactions</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="18">
+					<a href="#" itemprop="url"><span itemprop="name">Accounts Receivable Transactions</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualARInquiries.html')">Accounts receivable inquiries</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="19">
+					<a href="#" itemprop="url"><span itemprop="name">Accounts receivable inquiries</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualARReports.html')">Accounts receivable reports</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="20">
+					<a href="#" itemprop="url"><span itemprop="name">Accounts receivable reports</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualSalesAnalysis.html')">Sales analysis</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="21">
+					<a href="#" itemprop="url"><span itemprop="name">Sales analysis</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualSalesOrders.html')">Sales orders</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="22">
+					<a href="#" itemprop="url"><span itemprop="name">Sales orders</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualSales.html')">Picking Lists</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="23">
+					<a href="#" itemprop="url"><span itemprop="name">Picking Lists</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualPurchaseOrdering.html')">Purchase ordering</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="24">
+					<a href="#" itemprop="url"><span itemprop="name">Purchase ordering</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualSupplierTenders.html')">Supplier Tenders</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="25">
+					<a href="#" itemprop="url"><span itemprop="name">Supplier Tenders</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualShipments.html')">Shipments</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="26">
+					<a href="#" itemprop="url"><span itemprop="name">Shipments</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualContracts.html')">Contract Costing</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="27">
+					<a href="#" itemprop="url"><span itemprop="name">Contract Costing</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualManufacturing.html')">Manufacturing</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="28">
+					<a href="#" itemprop="url"><span itemprop="name">Manufacturing</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualForecastManagement.html')">Forecasting</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="29">
+					<a href="#" itemprop="url"><span itemprop="name">Forecasting</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualLabour.html')">Labour</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="30">
+					<a href="#" itemprop="url"><span itemprop="name">Labour</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualHumanResources.html')">Human resources</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="31">
+					<a href="#" itemprop="url"><span itemprop="name">Human resources</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualQualityAssurance.html')">Quality Assurance</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="32">
+					<a href="#" itemprop="url"><span itemprop="name">Quality Assurance</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualMRP.html')">Material requirements planning</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="33">
+					<a href="#" itemprop="url"><span itemprop="name">Material requirements planning</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualGeneralLedger.html')">General Ledger</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="34">
+					<a href="#" itemprop="url"><span itemprop="name">General Ledger</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualPettyCash.html')">Petty cash management system</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="35">
+					<a href="#" itemprop="url"><span itemprop="name">Petty cash management system</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualFixedAssets.html')">Fixed Assets Manager</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="36">
+					<a href="#" itemprop="url"><span itemprop="name">Fixed Assets Manager</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualSetup.html')">Setup</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="37">
+					<a href="#" itemprop="url"><span itemprop="name">Setup</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualTax.html')">Tax</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="38">
+					<a href="#" itemprop="url"><span itemprop="name">Tax</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualReportBuilder.html')">SQL Report Writer</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="39">
+					<a href="#" itemprop="url"><span itemprop="name">SQL Report Writer</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualMultilanguage.html')">Multilanguage</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="40">
+					<a href="#" itemprop="url"><span itemprop="name">Multilanguage</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualSpecialUtilities.html')">Special utilities</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="41">
+					<a href="#" itemprop="url"><span itemprop="name">Special utilities</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualEDI.html')">EDI</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="42">
+					<a href="#" itemprop="url"><span itemprop="name">EDI</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualNewScripts.html')">Development - Foundations</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="43">
+					<a href="#" itemprop="url"><span itemprop="name">Development - Foundations</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualAPITutorial.html')">API Tutorial</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="44">
+					<a href="#" itemprop="url"><span itemprop="name">API Tutorial</span></a>
 				</li>
-				<li class="manual-index-item">
-					<a href="#" onclick="GetPage('Manual/ManualDevelopmentStructure.html')">Development Structure</a>
+				<li class="manual-index-item" itemscope itemtype="https://schema.org/ListItem">
+					<meta itemprop="position" content="45">
+					<a href="#" itemprop="url"><span itemprop="name">Development Structure</span></a>
 				</li>
 			</ul>
-			<div id="page" class="manual-page">
+			<div id="page" class="manual-page" itemscope itemtype="https://schema.org/Article">
+				<meta itemprop="headline" content="webERP Goals">
 				<a id="webERP Goals">
 					<h1>webERP Goals</h1>
 				</a>
-				<p>At the time of webERP's inception in 2002-2003, the future direction of wide area networking became obvious and the capability to present graphical screens anywhere in the world communicating to a central server ... over relatively low bandwidth connections (the internet) ... had arrived as a tool for businesses. At the same time, competitive pressures and the speed of business required business people be able to work effectively on the road, from home or wherever they were in the world with all the critical business information at their finger-tips. Although ERP software is often slow to adapt, most ERP vendors now accept the benefits of web-based applications for business. The internet really has enabled a dramatic improvement in business productivity and the demise of the heavy client-server ERP systems.</p>
-				<p>webERP was one of the first truly web-based ERP systems and was significantly ahead of its time when first released. Unlike many legacy ERP systems where web capabilities were retrofitted, webERP was conceived and designed from the ground up as a web application with efficiency and usability its primary objectives.</p>
+				<p itemprop="articleBody">At the time of webERP's inception in 2002-2003, the future direction of wide area networking became obvious and the capability to present graphical screens anywhere in the world communicating to a central server ... over relatively low bandwidth connections (the internet) ... had arrived as a tool for businesses. At the same time, competitive pressures and the speed of business required business people be able to work effectively on the road, from home or wherever they were in the world with all the critical business information at their finger-tips. Although ERP software is often slow to adapt, most ERP vendors now accept the benefits of web-based applications for business. The internet really has enabled a dramatic improvement in business productivity and the demise of the heavy client-server ERP systems.</p>
+				<p itemprop="articleBody">webERP was one of the first truly web-based ERP systems and was significantly ahead of its time when first released. Unlike many legacy ERP systems where web capabilities were retrofitted, webERP was conceived and designed from the ground up as a web application with efficiency and usability its primary objectives.</p>
 				<p>From the beginning, the goals for webERP have been (and will continue to be):</p>
 				<ul>
 					<li>To be as efficient as possible for use on modest servers and low-bandwidth connections. This has required careful and sparing use of graphics and javascript with blazingly fast response even over modest internet connections.</li><br>
@@ -234,7 +282,7 @@
 				</ul>
 			</div>
 		</div>
-		<footer>
+		<footer itemscope itemtype="https://schema.org/WPFooter">
 		<div class="badges-container">
 		<!-- Begin SF Tag -->
 			<a href="https://sourceforge.net/projects/web-erp/?pk_campaign=badge&pk_source=vendor">

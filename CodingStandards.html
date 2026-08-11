@@ -24,10 +24,12 @@
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 
-	<body id="home">
-		<header>
-			<a href="./index.html" class="ItemLink">
-				<div id="logo">
+	<body id="home" itemscope itemtype="https://schema.org/WebPage">
+		<header itemscope itemtype="https://schema.org/WPHeader">
+			<a href="./index.html" class="ItemLink" itemprop="url">
+				<div id="logo" itemscope itemtype="https://schema.org/Organization" itemprop="publisher">
+					<meta itemprop="name" content="webERP">
+					<meta itemprop="url" content="https://www.weberp.org">
 					<div class="logo logo-left">web</div><div class="logo logo-right">ERP</div>
 				</div>
 			</a>
@@ -76,10 +78,11 @@
 				</div>
 			</span>
 		</header>
-		<fieldset>
+		<fieldset itemscope itemtype="https://schema.org/Article">
+			<meta itemprop="headline" content="webERP Coding Standards | PHP Development Guidelines">
 			<legend id="PageTitle" style="font-size:200%">Coding Conventions/Style</legend>
-			<h1>webERP Coding Standards</h1>
-            <div id="PageDetail" dir="ltr"><p>It is a core goal of webERP to be
+			<h1 itemprop="name">webERP Coding Standards</h1>
+            <div id="PageDetail" dir="ltr" itemprop="articleBody"><p>It is a core goal of webERP to be
             	easy to read for business people and newcomers to PHP. The webERP Coding
 				Standards are not only good programming practice to reduce errors,
 				they make the code easier to follow - which also reduces errors. The
@@ -383,7 +386,7 @@
             	strings for easier quicker PHP parsing.</p>
 			</div>
 		</fieldset>
-			<footer>
+			<footer itemscope itemtype="https://schema.org/WPFooter">
 				<div class="badges-container">
 				<!-- Begin SF Tag -->
 					<a href="https://sourceforge.net/projects/web-erp/?pk_campaign=badge&pk_source=vendor">

@@ -24,10 +24,12 @@
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 
-	<body id="home">
-		<header>
-			<a href="./index.html" class="ItemLink">
-				<div id="logo">
+	<body id="home" itemscope itemtype="https://schema.org/WebPage">
+		<header itemscope itemtype="https://schema.org/WPHeader">
+			<a href="./index.html" class="ItemLink" itemprop="url">
+				<div id="logo" itemscope itemtype="https://schema.org/Organization" itemprop="publisher">
+					<meta itemprop="name" content="webERP">
+					<meta itemprop="url" content="https://www.weberp.org">
 					<div class="logo logo-left">web</div><div class="logo logo-right">ERP</div>
 				</div>
 			</a>
@@ -76,11 +78,12 @@
 				</div>
 			</span>
 		</header>
-		<section>
-			<h1>General</h1>
+		<section itemscope itemtype="https://schema.org/Article">
+			<meta itemprop="headline" content="Contribute to webERP - Developer Guide & Git Workflow">
+			<h1 itemprop="name">General</h1>
 			<ul>
-                <li><p>Contributors retain copyright for their work. All contributions are presumed to be provided according to the terms of the GNU Public Licence v2 (GPL v2).</p></li>
-			    <li><p>Follow the <a target="_blank" href="https://www.weberp.org/CodingStandards.html">webERP Coding Standards</a></li></p></li>
+                <li><p itemprop="articleBody">Contributors retain copyright for their work. All contributions are presumed to be provided according to the terms of the GNU Public Licence v2 (GPL v2).</p></li>
+			    <li><p itemprop="articleBody">Follow the <a target="_blank" href="https://www.weberp.org/CodingStandards.html">webERP Coding Standards</a></li></p></li>
             </ul>
 
 			<h2 class="main-title">Development Workflow</h2>
@@ -238,7 +241,7 @@
 			<p class="sub-para">There are 3 checkboxes. Check them all. (You could opt to not prune/delete any local branches you've created, if you want to preserve them to understand your own work history, by unchecking the corresponding box.) (You could also fetch from individual remotes manually, and prune only when fetching from upstream, but never prune when fetching from your own GitHub master)</p>
 			<p class="sub-para">Click OK</p>
 		</section>
-		<footer>
+		<footer itemscope itemtype="https://schema.org/WPFooter">
 		<div class="badges-container">
 		<!-- Begin SF Tag -->
 			<a href="https://sourceforge.net/projects/web-erp/?pk_campaign=badge&pk_source=vendor">
